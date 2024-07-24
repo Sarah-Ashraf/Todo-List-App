@@ -62,3 +62,47 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Instruction to run application
+
+1. Install Composer Dependencies
+
+Install the PHP dependencies using Composer:
+
+composer install
+
+2. Install Node.js Dependencies
+
+Install the Node.js dependencies using npm:
+
+npm install
+
+3. Set Up Environment Variables
+
+Copy the .env.example file to create a .env file:
+
+cp .env.example .env
+
+Generate an application key:
+
+php artisan key:generate
+
+4. Run Migrations
+
+php artisan migrate
+
+php artisan db:seed
+
+Running the Application
+
+1. Start the Development Server
+
+You can start the Laravel development server using Artisan:
+
+php artisan serve
+
+2. Compile Assets
+
+You need to compile your front-end assets. For development, you can use:
+
+npm run dev
