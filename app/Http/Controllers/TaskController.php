@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Task;
+use Illuminate\Http\Request;
+
+class TaskController extends Controller
+{
+    public function index()
+    {
+        return Task::with('category')->paginate(10);
+    }
+
+    public function store(Request $request)
+    {
+        $task = Task::create($request->all());
+        return response()->json($task, 201);
+    }
+
+    public function show(Task $task)
+    {
+        return $task;
+    }
+
+    public function update(Request $request, Task $task)
+    {
+        $task->update($request->all());
+        return response()->json($task, 200);
+    }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return response()->json(null, 204);
+    }
+
+    public function restore(Task $task)
+    {
+        $task->restore();
+        return response()->json($task, 200);
+    }
+}
